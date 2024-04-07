@@ -1,0 +1,57 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.container {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 100px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url(360_F_571834789_ujYbUnH190iUokdDhZq7GXeTBRgqYVwa.jpeg);
+}
+
+h1, h2 {
+    text-align: center;
+    color: white;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+label {
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+input {
+    color: black;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+}
+
+p {
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: medium;
+}
+
+
+div {
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: medium;
+}

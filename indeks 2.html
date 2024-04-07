@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stlye.css">
+    <title>Computer-Based Testing (CBT)</title>
+
+</head>
+<body>
+    <div class="container">
+        <!-- Halaman Login -->
+        <div id="loginPage">
+            <h1>Halaman Login</h1>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username"><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password"><br><br>
+                <button type="button" onclick="login()">Login</button>
+            </form>
+        </div>
+        <!-- Halaman Soal -->
+        <div id="questionPage" style="display: none;">
+            <h2>Soal CBT</h2>
+            <form id="cbtForm">
+                <div class="question">
+                    <p>1. Apa ibukota Indonesia?</p>
+                    <input type="radio" name="question1" value="Jakarta"> Jakarta<br>
+                    <input type="radio" name="question1" value="Surabaya"> Surabaya<br>
+                    <input type="radio" name="question1" value="Bandung"> Bandung<br>
+                    <input type="radio" name="question1" value="Semarang"> Semarang<br>
+                </div>
+                <div class="question">
+                    <p>2. Berapakah hasil dari 2 + 2?</p>
+                    <input type="radio" name="question2" value="3"> 3<br>
+                    <input type="radio" name="question2" value="4"> 4<br>
+                    <input type="radio" name="question2" value="5"> 5<br>
+                    <input type="radio" name="question2" value="6"> 6<br>
+                </div>
+                <div class="question">
+                    <p>3. apa ibu kota Jawa Tengah?</p>
+                    <input type="radio" name="question3" value="bandung"> Bandung<br>
+                    <input type="radio" name="question3" value="Semarang"> Semarang<br>
+                    <input type="radio" name="question3" value="Surakarta"> Surakarta<br>
+                    <input type="radio" name="question3" value="Surabaya"> Surabaya<br>
+                </div>
+                <button type="button" onclick="submitTest()">Submit</button>
+            </form>
+        </div>
+        <!-- Halaman Hasil -->
+        <div id="resultPage" style="display: none;">
+            <h2>Hasil CBT</h2>
+            <p id="score"></p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript untuk mengelola halaman CBT
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Contoh autentikasi sederhana
+            if (username === "10607" && password === "10607") {
+                document.getElementById("loginPage").style.display = "none";
+                document.getElementById("questionPage").style.display = "block";
+            } else {
+                alert("Username atau password salah");
+            }
+        }
+
+        function submitTest() {
+            var form = document.getElementById("cbtForm");
+            var correctAnswers = { "question1": "Jakarta", "question2": "4", "question3": "Semarang"};
+            var score = 0;
+
+            // Memeriksa jawaban dari form
+            for (var i = 0; i < form.elements.length; i++) {
+                var element = form.elements[i];
+                if (element.type === "radio" && element.checked) {
+                    if (element.value === correctAnswers[element.name]) {
+                        score++;
+                    }
+                }
+            }
+
+            // Menampilkan hasil ujian
+            var totalQuestions = Object.keys(correctAnswers).length;
+            var percentage = (score / totalQuestions) * 100;
+            document.getElementById("score").innerHTML = "Nilai Anda: " + score + " dari " + totalQuestions + " (" + percentage.toFixed(2) + "%)";
+            document.getElementById("questionPage").style.display = "none";
+            document.getElementById("resultPage").style.display = "block";
+        }
+    </script>
+</body>
+</html>
